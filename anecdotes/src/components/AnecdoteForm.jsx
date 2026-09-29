@@ -1,6 +1,6 @@
 import { useAnecdotesActions } from "../store";
 
-const AnecdoteList = () => {
+const AnecdoteForm = () => {
   const { add } = useAnecdotesActions();
 
   const addAnecdote = (e) => {
@@ -23,4 +23,4 @@ const AnecdoteList = () => {
   );
 };
 
-export default AnecdoteList;
+export default AnecdoteForm;
