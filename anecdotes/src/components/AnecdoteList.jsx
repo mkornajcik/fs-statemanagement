@@ -1,7 +1,6 @@
-import { useAnecdotes, useAnecdotesActions, useFilter, useNotificationActions } from "../store";
+import { useAnecdotes, useAnecdotesActions, useNotificationActions } from "../store";
 
 const AnecdoteList = () => {
-  const filter = useFilter();
   const anecdotes = useAnecdotes();
   const { incrementVotes, remove } = useAnecdotesActions();
   const { setNotification } = useNotificationActions();
@@ -11,13 +10,9 @@ const AnecdoteList = () => {
     setNotification(`you voted '${anecdote.content}'`);
   };
 
-  const sortedAnecdotes = anecdotes.toSorted((a, b) => b.votes - a.votes);
-
-  const anecdotesToShow = sortedAnecdotes.filter((note) => note.content.toLowerCase().includes(filter.toLowerCase()));
-
   return (
     <div>
-      {anecdotesToShow.map((anecdote) => (
+      {anecdotes.map((anecdote) => (
         <div key={anecdote.id}>
           <div>{anecdote.content}</div>
           <div>
