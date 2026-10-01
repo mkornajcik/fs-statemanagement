@@ -8,7 +8,7 @@ const AnecdoteList = () => {
 
   const vote = (anecdote) => {
     incrementVotes(anecdote.id);
-    setNotification(`You voted ${anecdote.content}`);
+    setNotification(`you voted '${anecdote.content}'`);
   };
 
   const sortedAnecdotes = anecdotes.toSorted((a, b) => b.votes - a.votes);
